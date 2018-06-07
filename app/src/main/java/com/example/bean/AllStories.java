@@ -3,7 +3,9 @@ package com.example.bean;
 import java.util.List;
 
 /**
- * Created by master on 2018/4/9.
+ *
+ * @author master
+ * @date 2018/4/9
  */
 
 public class AllStories {

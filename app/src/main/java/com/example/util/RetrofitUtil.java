@@ -2,6 +2,9 @@ package com.example.util;
 
 
 import com.example.inter.Api;
+import com.example.string.StringConverterFactory;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 
 import java.util.concurrent.TimeUnit;
@@ -41,10 +44,14 @@ public class RetrofitUtil {
                 .retryOnConnectionFailure(true)
                 .build();
 
+        Gson gson = new GsonBuilder().setLenient().create();
+        GsonConverterFactory mGsonConverterFactory = GsonConverterFactory.create(gson);
+
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(ApiUtil.ZHI_HU_URL)
                 .client(okHttpClient)
-                .addConverterFactory(GsonConverterFactory.create())
+                .addConverterFactory(mGsonConverterFactory)
+                .addConverterFactory(StringConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build();
 

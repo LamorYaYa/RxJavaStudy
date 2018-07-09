@@ -3,7 +3,6 @@ package com.example.bean;
 import java.util.List;
 
 /**
- *
  * @author master
  * @date 2018/4/9
  */
